@@ -6,7 +6,7 @@ use App\Cashback;
 use App\Exceptions\NonReportable\BadCurrencyException;
 use App\Exceptions\NonReportable\BadParameterException;
 use App\Exceptions\NonReportable\InsufficientFundsException;
-use App\Services\Money\TransactionStorage;
+use App\Services\Money\ITransactionStorage;
 use App\Transaction;
 use App\User;
 use Stripe\Service\BalanceService;
@@ -17,7 +17,7 @@ use Stripe\Service\BalanceService;
  *
  * Сервис для операций с кешбеком
  */
-class CashbackService implements TransactionStorage
+class CashbackService implements ITransactionStorage
 {
 
     const INFLOW_TYPES = [
