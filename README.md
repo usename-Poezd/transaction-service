@@ -13,9 +13,9 @@
      * Map TransactionStorage class for string type
      *
      * @param string $type
-     * @return TransactionStorage
+     * @return ITransactionStorage
      */
-    protected function mapService(string $type): TransactionStorage
+    protected function mapService(string $type): ITransactionStorage
     {
         return match ($type) {
             Payment::ACTION_TYPE_TRANSACTION => $this->transactionService,
