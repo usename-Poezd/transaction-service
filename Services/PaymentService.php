@@ -10,8 +10,8 @@ use App\Exceptions\Reportable\ReportableException;
 use App\Http\Middleware\SetRegionMW;
 use App\Payment;
 use App\PaymentSystems\PaymentSystem;
-use App\Services\Money\PaymentService as BasePaymentService;
-use App\Services\Money\TransactionStorage;
+use App\Services\Money\IPaymentService as BasePaymentService;
+use App\Services\Money\ITransactionStorage;
 use App\Transaction;
 use App\User;
 use App\UserService;
@@ -179,7 +179,7 @@ class PaymentService implements BasePaymentService
      * @param string $type
      * @return TransactionStorage
      */
-    protected function mapService(string $type): TransactionStorage
+    protected function mapService(string $type): ITransactionStorage
     {
         return match ($type) {
             Payment::ACTION_TYPE_TRANSACTION => $this->transactionService,
