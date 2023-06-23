@@ -7,7 +7,7 @@ use App\Exceptions\NonReportable\BadParameterException;
 use App\Exceptions\NonReportable\InsufficientFundsException;
 use App\Exceptions\TException;
 use App\PremiumStatus;
-use App\Services\Money\TransactionStorage;
+use App\Services\Money\ITransactionStorage;
 use App\Transaction;
 use App\User;
 use Illuminate\Support\Facades\Log;
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Log;
  *
  * Сервис для операций с транзакций
  */
-class TransactionsService implements TransactionStorage
+class TransactionsService implements ITransactionStorage
 {
 
     const INFLOW_TYPES = [
